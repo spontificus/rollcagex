@@ -1,0 +1,12 @@
+#comment
+#you don't even have to put
+#anything between the variable
+#name and the value ;)
+mass		40.0
+max_torque	500.0
+suspension_erp	0.4
+suspension_cfm	0.04
+
+lenght      9
+width       6
+height      2

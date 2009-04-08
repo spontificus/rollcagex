@@ -1,0 +1,52 @@
+RollCageX v0.02
+
+#INFO
+This is an attempt on making a improved version of v0.01, what it adds is:
+
+* air friction
+
+* fixed strange wheel behaviour (using finitrotation on the wheel axis, but it's not completely solved, just made ignoreable)
+
+* timing function, to make the simulation step more realistic (before each step, the program idles until the time since the last simulation
+  is the same as the step size, and thus the simulation will run in the same speed as reality) KEEP IN MIND: the current (dirty simple)
+  solution will use a platform dependent time request, which means it's a high posibility that this version wont compile on windows (and
+  similar)
+
+* a demonstration of how I think the file (cars/tracks) loader(s) should be designed (not the algorithms themself, just the way the loading
+  functions should be called, and how the data should be stored)
+
+* better code sorting (split the code to different files, and add a speciall car structure)
+
+(more things were planed, but (ovious) limitations in the drawstuff library made it impossible to solve some issues, like smarter turning)
+
+#DEPENDENCIES
+You will need an opengl implementation (preferably mesa3d) and the "open dynamics engine" development libraries if you want to compile it
+(if ode came with a drawstuff library, and you wish to use it, you might want to look in the makefile)
+
+#COMPILATION
+If you can't run the allready compiled version, you _will_ need to compile it yourself:
+check if your version of ode came with the drawstuff library, if it did, just change the makefile (follow the instructions in it)
+if it didn't, compile the version that came bundled with rcx:
+* use make to clean and compile drawstuff (in the drawstuff directory)
+
+Now that you got the drawstuff library, you will have to compile the game itself:
+* use make to clean and compile rcx (in the src directory)
+
+Have fun!
+
+(A note on campatibility: this verion uses a platform dependent time request (gettimeofday), which will cause problems for the windows users
+it will be dropped for an independent solution when drawstuff is dropped (as mentioned in the end of this text))
+
+#DEVELOPMENT
+If you wish to help with the project (like submiting a patch of changes you have done to this code), it is a good idea to just register
+to the sf forum, and simply post ;) (if you can't register, let us know, send an email)
+
+The goal for the next version is to remove the drawstuff dependency, and add a custom solution (around freeglut/glut). If
+you want to help with this, it would be appriciated. (_especially_ a 3d file loader solution - anything from ideas, to real implementations
+are welcome)
+
+Note that the change to a real 3d rendering solution will change some of he callback functions, one of the plans for the changed syntax is
+to take advantage of the posibility to have physics simulation and 3d drawing as separate function (different syncing).
+
+For the moment, I'm planing to use the "OpenGL utility toolkit" (freeglut to be precise) instead of drawstuff, if you got any ideas on
+alternatives (and why they would be better), don't hesitate to point them out.

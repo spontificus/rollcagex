@@ -1,0 +1,19 @@
+Unless the structure in this directory is obvious, here's a simple explanation:
+
+* cars				- directory containing different themes
+ \
+  * <theme>			- themes - it's just as the original games
+   \
+    * <car>			- cars owned by that team (again, just like the original games)
+    |\
+    | * settings		- vehicle characteristics
+    |\
+    | * 3d			- vehicle 3d file (containing coordinates for triangles making up the car) - not implemented in this version
+     \
+      * texture<value>		- texture files(s) for decoration of the car
+
+* tracks
+ \
+  * <location>			- environments (different places like: other planets, in tunnels, cities, sea close)
+   \
+    * <track>			- tracks in the environment
